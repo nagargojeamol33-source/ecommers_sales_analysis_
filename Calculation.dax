@@ -1,0 +1,33 @@
+Total Sales = SUM('Sales_Data'[Sales_Amount])
+
+Total Profit = SUM('Sales_Data'[Profit])
+
+Total Quantity = SUM('Sales_Data'[Quantity])
+
+Total Shipping Cost = SUM('Sales_Data'[Shipping_Cost])
+
+
+
+Sales % by Country = 
+DIVIDE(
+    [Total Sales], 
+    CALCULATE([Total Sales], ALL('Sales_Data'[Country]))
+)
+
+Sales % by Market = 
+DIVIDE(
+    [Total Sales], 
+    CALCULATE([Total Sales], ALL('Sales_Data'[Market]))
+)
+
+Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
+
+Clean Category = UPPER(TRIM('Sales_Data'[Category]))
+
+
+Top 2 State Filter = 
+IF(
+    RANKX(ALL('Sales_Data'[State]), [Total Sales], , DESC) <= 2, 
+    1, 
+    0
+)
