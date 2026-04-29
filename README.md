@@ -1,4 +1,4 @@
-# ecommers_sales_analysis_
+# Ecommers_sales_analysis_
 
 Problem Statement:
 In the modern retail landscape, e-commerce companies generate massive datasets from transactions across diverse global markets. 
